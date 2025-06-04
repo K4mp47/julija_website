@@ -141,7 +141,7 @@ function AnimatedListItem({ item, idx, animation }: AnimatedListItemProps) {
     >
       <HoverCard>
         <HoverCardTrigger asChild>
-          <p>
+          <p className="butovo cursor-pointer">
             {item[0]}
             <sup className="text-[#AE2D29] font-thin">&nbsp;{idx + 1}</sup>
           </p>

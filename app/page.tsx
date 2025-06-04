@@ -1,7 +1,6 @@
 "use client";
 import Image from 'next/image';
 import { BentoGridDemo } from './components/bento/bento';
-import NavBar from './components/navbar/navbar';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 
@@ -34,7 +33,7 @@ export default function Home() {
 
   return (
     <div className=''>
-      <NavBar />
+      
         {/* <div className="flex justify-center mt-[10rem]">
           <Image
             src={images[num]}
@@ -66,7 +65,7 @@ export default function Home() {
           </p>
           <a
             href="/works"
-            className="bg-transparent text-stone-600 font-medium butovo px-6 py-3 hover:bg-[#AE2D29] hover:text-white transition duration-200"
+            className="bg-transparent text-stone-600 font-medium butovo px-6 py-3 hover:bg-[#AE2D29] hover:text-white hover:-translate-y-1 transition duration-200"
           >
             Explore My Work
           </a>

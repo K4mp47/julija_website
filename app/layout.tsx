@@ -3,6 +3,7 @@
 import "./globals.css";
 import { usePathname } from 'next/navigation';
 import Footer from "./components/footer/footer";
+import NavBar from "./components/navbar/navbar";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`scrollbar-hide flex flex-col min-h-screen ${pathname == "/contact" ? "justify-center" : ""}`}>
+      <NavBar />
         {children}
         {/* {pathname !== "/contact" && pathname !== "/about" && <Footer className="bottom-0" />} */}
         <Footer className="bottom-0" />
