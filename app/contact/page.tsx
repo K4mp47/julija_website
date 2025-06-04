@@ -1,11 +1,15 @@
 import { FaInstagram } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
+import NavBar from '../components/navbar/navbar';
 
 export default function Contact() {
     return (
+      <div>
+        <NavBar />
       <div className='p-8 lg:p-40 flex flex-col justify-start lg:justify-center'>
-        <h1 className="uppercase text-[2rem] flex justify-start lg:justify-center text-[#AE2D29]" style={{ fontWeight: 300 }}>Contacts</h1>
-        <p className="flex justify-start lg:justify-center">get in touch!</p>
+        
+        <h1 className="uppercase text-[2rem] flex justify-start lg:justify-center text-[#AE2D29] butovo" style={{ fontWeight: 300 }}>Contacts</h1>
+        <p className="flex justify-start lg:justify-center font-medium">get in touch!</p>
         <div className="relative flex justify-start lg:justify-center mt-8">
           <FaInstagram className="text-[#AE2D29] text-2xl mr-2" />
           <span style={{ fontWeight: 400 }}>instagram@username</span>
@@ -15,6 +19,7 @@ export default function Contact() {
           <AiOutlineMail className="text-[#AE2D29] text-2xl mr-2" />
           <span style={{ fontWeight: 400 }}>email@username</span>
         </div>
+      </div>
       </div>
     );
   }

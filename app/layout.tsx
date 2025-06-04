@@ -2,7 +2,6 @@
 
 import "./globals.css";
 import { usePathname } from 'next/navigation';
-import NavBar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 
 // const geistSans = Geist({
@@ -25,11 +24,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
   return (
     <html lang="en">
-      <body className="scrollbar-hide flex flex-col justify-between min-h-screen">
-        <NavBar />
+      <body className={`scrollbar-hide flex flex-col min-h-screen ${pathname == "/contact" ? "justify-center" : ""}`}>
         {children}
+        {/* {pathname !== "/contact" && pathname !== "/about" && <Footer className="bottom-0" />} */}
         <Footer className="bottom-0" />
       </body>
     </html>

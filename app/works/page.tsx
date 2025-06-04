@@ -1,14 +1,21 @@
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+import Image from "next/image"
+import NavBar from "../components/navbar/navbar";
 
 const categories: [string, string[][]][] = [
   ['Paintings',
     [
       [
         'Painting 1',
-        '/Painting1/image1.png',
+        '/image1.png',
       ],
       [
         'Painting 2',
-        '/Painting2/image1.png',
+        '/image2.png',
       ],
       [
         'Painting 3',
@@ -111,39 +118,42 @@ const categories: [string, string[][]][] = [
 ]
 export default function Works() {
     return (
-      <div className="min-h-max">
-        <div className="hidden lg:grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-6 lg:px-28">
+      <div>
+        <NavBar />
+      <div className="min-h-max pt-40">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-6 lg:px-28 pb-28">
           {categories.map(([category, items], index) => (
-            <div key={index} className="flex justify-center">
+            <div key={index} className="flex lg:justify-center justify-start p-8">
               <div>
-              <div>{category}/<sup className="text-[#AE2D29]">&nbsp;0</sup></div>
+              <div className="font-light">{category}/<sup className="text-[#AE2D29]">&nbsp;0</sup></div>
               <ul className="pl-8 lg:pl-20">
                 {items.map((item: string | string[], index: number) => (
                   <li className="font-bold p-1 text-xl" key={index}>
-                    {Array.isArray(item) ? item[0] : item}
-                    <sup className="text-[#AE2D29] font-thin">&nbsp;{index + 1}</sup>
+                    <HoverCard>
+                      <HoverCardTrigger asChild>
+                        <p>{Array.isArray(item) ? item[0] : item}<sup className="text-[#AE2D29] font-thin">&nbsp;{index + 1}</sup></p>
+                      </HoverCardTrigger>
+                      <HoverCardContent className="w-80">
+                        <div className="flex justify-between">
+                          <Image
+                            src={Array.isArray(item) ? item[1] : item}
+                            alt={Array.isArray(item) ? item[0] : item}
+                            layout="fill"
+                            className="object-fill"
+                          />
+                        </div>
+                      </HoverCardContent>
+                    </HoverCard>
+                    
                   </li>
                 ))}
+                
               </ul>
             </div>
           </div>
           ))}
         </div>
-        <div className="lg:hidden w-full px-8">
-        {categories.map(([category, items], index) => (
-            <div key={index}>
-            <div>{category}/<sup className="text-[#AE2D29]">&nbsp;0</sup></div>
-            <ul className="pl-8 lg:pl-20">
-              {items.map((item: string | string[], index: number) => (
-                <li className="font-bold p-1 text-xl" key={index}>
-                  {Array.isArray(item) ? item[0] : item}
-                  <sup className="text-[#AE2D29] font-thin">&nbsp;{index + 1}</sup>
-                </li>
-              ))}
-            </ul>
-          </div>
-          ))}
-        </div>
+      </div>
       </div>
     );
   }
