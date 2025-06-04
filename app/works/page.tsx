@@ -1,3 +1,4 @@
+"use client";
 import {
   HoverCard,
   HoverCardContent,
@@ -5,6 +6,8 @@ import {
 } from "@/components/ui/hover-card"
 import Image from "next/image"
 import NavBar from "../components/navbar/navbar";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const categories: [string, string[][]][] = [
   ['Paintings',
@@ -116,46 +119,89 @@ const categories: [string, string[][]][] = [
     ]
   ]
 ]
+type AnimatedListItemProps = {
+  item: string[];
+  idx: number;
+  animation: import("framer-motion").Variants;
+};
+
+function AnimatedListItem({ item, idx, animation }: AnimatedListItemProps) {
+  const ref = useRef<HTMLLIElement | null>(null);
+  const isInView = useInView(ref, { once: true, margin: '-10%' });
+
+  return (
+    <motion.li
+      className="font-bold p-1 text-xl"
+      key={idx}
+      ref={ref}
+      custom={idx}
+      variants={animation}
+      initial="initial"
+      animate={isInView ? "enter" : ""}
+    >
+      <HoverCard>
+        <HoverCardTrigger asChild>
+          <p>
+            {item[0]}
+            <sup className="text-[#AE2D29] font-thin">&nbsp;{idx + 1}</sup>
+          </p>
+        </HoverCardTrigger>
+        <HoverCardContent className="w-80">
+          <div className="flex justify-between">
+            <Image
+              src={item[1]}
+              alt={item[0]}
+              layout="fill"
+              className="object-fill"
+            />
+          </div>
+        </HoverCardContent>
+      </HoverCard>
+    </motion.li>
+  );
+}
+
 export default function Works() {
-    return (
-      <div>
-        <NavBar />
+  // Animate each item when in view
+  // If you want all to animate at once, use a single ref; for per-item, use an array
+  const animation = {
+    initial: { y: "100%", opacity: 0 },
+    enter: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.33, 1, 0.68, 1],
+        delay: i * 0.07,
+      },
+    }),
+  };
+
+  return (
+    <div>
+      <NavBar />
       <div className="min-h-max pt-40">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-6 lg:px-28 pb-28">
-          {categories.map(([category, items], index) => (
-            <div key={index} className="flex lg:justify-center justify-start p-8">
+          {categories.map(([category, items], catIdx) => (
+            <div key={catIdx} className="flex lg:justify-center justify-start p-8">
               <div>
-              <div className="font-light">{category}/<sup className="text-[#AE2D29]">&nbsp;0</sup></div>
-              <ul className="pl-8 lg:pl-20">
-                {items.map((item: string | string[], index: number) => (
-                  <li className="font-bold p-1 text-xl" key={index}>
-                    <HoverCard>
-                      <HoverCardTrigger asChild>
-                        <p>{Array.isArray(item) ? item[0] : item}<sup className="text-[#AE2D29] font-thin">&nbsp;{index + 1}</sup></p>
-                      </HoverCardTrigger>
-                      <HoverCardContent className="w-80">
-                        <div className="flex justify-between">
-                          <Image
-                            src={Array.isArray(item) ? item[1] : item}
-                            alt={Array.isArray(item) ? item[0] : item}
-                            layout="fill"
-                            className="object-fill"
-                          />
-                        </div>
-                      </HoverCardContent>
-                    </HoverCard>
-                    
-                  </li>
-                ))}
-                
-              </ul>
+                <div className="font-light">{category}/<sup className="text-[#AE2D29]">&nbsp;0</sup></div>
+                <ul className="pl-8 lg:pl-20">
+                  {items.map((item, idx) => (
+                    <AnimatedListItem
+                      key={idx}
+                      item={item}
+                      idx={idx}
+                      animation={animation}
+                    />
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
           ))}
         </div>
       </div>
-      </div>
-    );
-  }
+    </div>
+  );
+}
 
-  
