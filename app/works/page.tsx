@@ -131,7 +131,7 @@ function AnimatedListItem({ item, idx, animation }: AnimatedListItemProps) {
 
   return (
     <motion.li
-      className="font-bold p-1 text-xl"
+      className="font-bold text-xl"
       key={idx}
       ref={ref}
       custom={idx}
@@ -141,12 +141,12 @@ function AnimatedListItem({ item, idx, animation }: AnimatedListItemProps) {
     >
       <HoverCard>
         <HoverCardTrigger asChild>
-          <p className="butovo cursor-pointer">
+          <p className="butovo cursor-pointer border-l pl-4 border-black">
             {item[0]}
             <sup className="text-[#AE2D29] font-thin">&nbsp;{idx + 1}</sup>
           </p>
         </HoverCardTrigger>
-        <HoverCardContent className="w-80">
+        <HoverCardContent className="w-80 h-80">
           <div className="flex justify-between">
             <Image
               src={item[1]}

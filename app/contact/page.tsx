@@ -39,11 +39,10 @@ export default function Contact() {
     return (
       <div>
         <NavBar />
-      <div className='p-8 lg:p-40 flex flex-col justify-start lg:justify-center'>
-        
-        <h1 ref={title} className="uppercase text-[2rem] flex justify-start lg:justify-center text-[#AE2D29] butovo" style={{ fontWeight: 300 }}>
+      <div className='p-8 lg:p-40 flex flex-col max-w-lg md:mx-auto justify-start lg:justify-center lg:text-center'>
+        <h1 ref={title} className="uppercase text-left text-4xl text-[#AE2D29] font-semibold butovo">
           {titletext.map((char, i) => (
-            <span key={i} className="relative overflow-hidden inline-block">
+            <span key={i} className={`overflow-hidden inline-block`}>
               <motion.span
                 className="inline-block"
                 custom={i}
@@ -56,9 +55,9 @@ export default function Contact() {
             </span>
           ))}
         </h1>
-        <p className="flex justify-start lg:justify-center font-medium">
+        <p className="font-medium text-left">
           {subtext.map((word, i) => (
-            <span key={i} className="relative overflow-hidden mr-1 inline-block">
+            <span key={i} className={`relative overflow-hidden mr-1 inline-block font-mono ${i === 0 ? ' border-l pl-4 border-black' : ''}`}>
               <motion.span
                 className="inline-block"
                 custom={i}
@@ -71,12 +70,12 @@ export default function Contact() {
             </span>
           ))}
         </p>
-        <div className="relative flex justify-start lg:justify-center mt-8">
+        <div className="relative flex justify-start mt-8">
           <FaInstagram className="text-[#AE2D29] text-2xl mr-2" />
           <span style={{ fontWeight: 400 }}>instagram@username</span>
         </div>
         
-        <div className="relative flex justify-start lg:justify-center mt-4">
+        <div className="relative flex justify-start mt-4">
           <AiOutlineMail className="text-[#AE2D29] text-2xl mr-2" />
           <span style={{ fontWeight: 400 }}>email@username</span>
         </div>

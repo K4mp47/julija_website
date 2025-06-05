@@ -10,7 +10,7 @@ import {
 
 export function BentoGridDemo() {
   return (
-    <BentoGrid className="max-w-7xl mx-auto border">
+    <BentoGrid className="max-w-7xl mx-auto">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
@@ -30,25 +30,25 @@ export function BentoGridDemo() {
 // );
 
 const MyImage1 = () => (
-  <div className="flex flex-1 w-full h-full min-h-[12rem] bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative">
+  <div className="flex flex-1 w-full h-full min-h-[12rem] bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative border border-black shadow-[6px_6px_0_0#000]">
     <Image src="/image1.png" alt="Sphere" fill className="object-cover" />
   </div>
 );
 
 const MyImage2 = () => (
-  <div className="flex flex-1 w-full h-full min-h-[12rem] bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative">
+  <div className="flex flex-1 w-full h-full min-h-[12rem] bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative border border-black shadow-[6px_6px_0_0#000]">
     <Image src="/image2.png" alt="Sphere" fill className="object-cover" />
   </div>
 );
 
 const MyImage3 = () => (
-  <div className="flex flex-1 w-full h-full min-h-[12rem] bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative">
+  <div className="flex flex-1 w-full h-full min-h-[12rem] bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative border border-black shadow-[6px_6px_0_0#000]">
     <Image src="/image3.png" alt="Sphere" fill className="object-cover" />
   </div>
 );
 
 const MyImage4 = () => (
-  <div className="flex flex-1 w-full h-full min-h-[12rem] bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative">
+  <div className="flex flex-1 w-full h-full min-h-[12rem] bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative border border-black shadow-[6px_6px_0_0#000]">
     <Image src="/image4.png" alt="Sphere" fill className="object-cover" />
   </div>
 );
@@ -62,7 +62,7 @@ const items = [
   },
   {
     title: "Poetry",
-    description: "Dive into the transformative power of technology.",
+    description: "Dive into the transformative power of writing.",
     header: <MyImage2 />,
     icon: <IconFileBroken className="h-4 w-4 text-[#AE2D29]" />,
   },

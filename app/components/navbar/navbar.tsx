@@ -29,7 +29,7 @@ export default function NavBar() {
 
   return (
     <div
-      className={`fixed w-full top-0 z-50 bg-white flex justify-between p-8 butovo border transition-transform duration-300 ${
+      className={`fixed w-full top-0 z-50 bg-white flex justify-between p-8 butovo border-b border-black transition-transform duration-300 ${
         show ? 'translate-y-0' : '-translate-y-full'
       }`}
     >

@@ -53,7 +53,7 @@ export default function About() {
     <div>
       <NavBar />
     <div className='p-8 pt-40 lg:pt-60 lg:px-40 mb-32'>
-      <h1 ref={title1} className="uppercase text-[2rem] w-full flex justify-start lg:justify-center text-[#AE2D29] butovo" style={{ fontWeight: 300 }}>
+      <h1 ref={title1} className="uppercase text-[2rem] w-full flex justify-start lg:justify-center text-[#AE2D29] butovo mb-4" style={{ fontWeight: 600 }}>
         {titleWords.map((word, i) => (
             <span key={i} className="relative overflow-hidden mr-4 inline-block">
               <motion.span
@@ -68,9 +68,9 @@ export default function About() {
             </span>
           ))}
       </h1>
-      <p className="font-light">
+      <p className="font-light border-l pl-4 border-black">
         {textWords.map((word, i) => (
-            <span key={i} className="relative overflow-hidden mr-1 inline-block">
+            <span key={i} className="relative overflow-hidden mr-1 inline-block font-mono">
               <motion.span
                 className="inline-block"
                 custom={i}
@@ -83,7 +83,7 @@ export default function About() {
             </span>
           ))}
       </p>
-      <h1 className="text-[#AE2D29] text-[1.8rem] py-4 butovo"  style={{ fontWeight: 300 }}>
+      <h1 className="text-[#AE2D29] text-[1.8rem] py-4 butovo"  style={{ fontWeight: 600 }}>
         {titleWords2.map((word, i) => (
             <span key={i} className="relative overflow-hidden mr-4 inline-block">
               <motion.span
@@ -100,7 +100,7 @@ export default function About() {
       </h1>
       <motion.p
         style={{ fontWeight: 700 }}
-        className=""
+        className="border-l pl-4 border-black"
         initial="initial"
         animate={isInView ? "enter" : ""}
         variants={animation3}
@@ -121,14 +121,14 @@ export default function About() {
         ))}
       </motion.p>
       <motion.p
-        className="font-light"
+        className="border-l pl-4 border-black"
         initial="initial"
         animate={isInView ? "enter" : ""}
         variants={animation3}
         custom={1}
       >
         {"Collective ”Com’eri vestita?”, work pres. “ROTTURA”".split(" ").map((word, i) => (
-          <span key={i} className="relative overflow-hidden mr-1 inline-block">
+          <span key={i} className="relative overflow-hidden mr-1 inline-block font-mono">
             <motion.span
               className="inline-block"
               custom={i}
@@ -142,14 +142,14 @@ export default function About() {
         ))}
       </motion.p>
       <motion.p
-        className="pb-2 font-normal"
+        className="pb-2 border-l pl-4 border-black"
         initial="initial"
         animate={isInView ? "enter" : ""}
         variants={animation3}
         custom={2}
       >
         {"11 December 2023".split(" ").map((word, i) => (
-          <span key={i} className="relative overflow-hidden mr-1 inline-block">
+          <span key={i} className="relative overflow-hidden mr-1 inline-block font-mono">
             <motion.span
               className="inline-block"
               custom={i}
@@ -164,7 +164,7 @@ export default function About() {
       </motion.p>
       <motion.p
         style={{ fontWeight: 700 }}
-        className=""
+        className="border-l pl-4 border-black"
         initial="initial"
         animate={isInView ? "enter" : ""}
         variants={animation3}
@@ -185,7 +185,7 @@ export default function About() {
         ))}
       </motion.p>
       <motion.p
-        className="pb-2 font-normal"
+        className="pb-2 border-l pl-4 border-black"
         initial="initial"
         animate={isInView ? "enter" : ""}
         variants={animation3}
@@ -207,7 +207,7 @@ export default function About() {
       </motion.p>
       <motion.p
         style={{ fontWeight: 700 }}
-        className=""
+        className="border-l pl-4 border-black"
         initial="initial"
         animate={isInView ? "enter" : ""}
         variants={animation3}
@@ -228,14 +228,14 @@ export default function About() {
         ))}
       </motion.p>
       <motion.p
-        className="font-light"
+        className="border-l pl-4 border-black"
         initial="initial"
         animate={isInView ? "enter" : ""}
         variants={animation3}
         custom={6}
       >
         {"Collective “Sunday Fun” with Lulumeanstudio, work pres.".split(" ").map((word, i) => (
-          <span key={i} className="relative overflow-hidden mr-1 inline-block">
+          <span key={i} className="relative overflow-hidden mr-1 inline-block font-mono">
             <motion.span
               className="inline-block"
               custom={i}
@@ -249,14 +249,14 @@ export default function About() {
         ))}
       </motion.p>
       <motion.p
-        className="font-light"
+        className="border-l pl-4 border-black"
         initial="initial"
         animate={isInView ? "enter" : ""}
         variants={animation3}
         custom={7}
       >
         {"Artists book “Well-put together".split(" ").map((word, i) => (
-          <span key={i} className="relative overflow-hidden mr-1 inline-block">
+          <span key={i} className="relative overflow-hidden mr-1 inline-block font-mono font-extralight">
             <motion.span
               className="inline-block"
               custom={i}
@@ -270,14 +270,14 @@ export default function About() {
         ))}
       </motion.p>
       <motion.p
-        className="pb-2 font-normal"
+        className="pb-2 border-l pl-4 border-black"
         initial="initial"
         animate={isInView ? "enter" : ""}
         variants={animation3}
         custom={8}
       >
         {"on my bathroom floor” and Artists book “I fell between my bed and my drawer”".split(" ").map((word, i) => (
-          <span key={i} className="relative overflow-hidden mr-1 inline-block">
+          <span key={i} className="relative overflow-hidden mr-1 inline-block font-mono">
             <motion.span
               className="inline-block"
               custom={i}
