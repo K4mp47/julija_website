@@ -183,7 +183,7 @@ export default function Works() {
       <div className="min-h-max pt-40">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-6 lg:px-28 pb-28">
           {categories.map(([category, items], catIdx) => (
-            <div key={catIdx} className="flex lg:justify-center justify-start p-2">
+            <div key={catIdx} className="flex lg:justify-center justify-start pl-8">
               <div>
                 <div className="font-light">{category}/<sup className="text-[#AE2D29]">&nbsp;0</sup></div>
                 <ul className="pl-8 lg:pl-20">
