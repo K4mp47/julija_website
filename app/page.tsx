@@ -80,7 +80,7 @@ export default function Home() {
             Let’s collaborate and create something beautiful together!
             Contact me today to discuss your next project.
           </div>
-          <Image src='/me.png' alt='Image 1' className='w-1/2 h-auto object-cover border border-black shadow-[6px_6px_0_0#000] mb-8 lg:mb-0' layout='responsive' width={240} height={240} />
+          <Image src='/me.png' alt='Image 1' className='w-1/2 h-auto object-cover border border-black shadow-[6px_6px_0_0#000] mb-8 lg:mb-0' layout='responsive' width={200} height={200} />
         </div>
     </div>
   );
