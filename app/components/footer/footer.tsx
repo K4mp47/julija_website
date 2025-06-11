@@ -26,7 +26,7 @@ export default function Footer({ className = "" }: FooterProps) {
     }, []);
 
     return (
-      <footer className={`fixed bottom-0 left-0 w-full bg-white p-8 z-50 ${className} border-t border-black transition-transform duration-300 ${
+      <footer className={`fixed bottom-0 left-0 w-full bg-white p-8 z-40 ${className} border-t border-black transition-transform duration-300 ${
         show ? 'translate-y-0' : 'translate-y-full'}`}>
         <div className="flex flex-col space-y-2 justify-between sm:flex-row sm:space-y-0">
           <div className="uppercase butovo">julija matic</div>

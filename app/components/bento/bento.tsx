@@ -49,7 +49,15 @@ const MyImage3 = () => (
 
 const MyImage4 = () => (
   <div className="flex flex-1 w-full h-full min-h-[12rem] bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative border border-black shadow-[6px_6px_0_0#000]">
-    <Image src="/image4.png" alt="Sphere" fill className="object-cover" />
+    {/* <Image src="/image4.png" alt="Sphere" fill className="object-cover" /> */}
+    <video
+      src="/ascii.webm"
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="object-cover w-full h-full"
+      style={{ filter: "invert(1)"}}/>
   </div>
 );
 

@@ -72,7 +72,7 @@ export default function Home() {
         </section>
         <div id="bento"></div>
         <BentoGridDemo />
-        <div className='flex lg:flex-row flex-col-reverse justify-between items-center lg:items-end p-4 lg:py-20 mb-24 lg:mb-16 max-w-7xl mx-auto'>
+        <div className='flex lg:flex-row flex-col-reverse justify-between items-center lg:items-end p-4  pt-96 lg:py-20 mb-24 lg:mb-16 max-w-7xl mx-auto'>
           <div style={{ fontWeight: '300' }} className='flex justify-center pl-4 lg:px-4 font-mono text-left border-l h-1/2 border-black text-sm'>
             Hi, I’m [Your Name], a passionate freelance illustrator and drawer based in [Your City].
             <br></br> With [X years] of experience, I specialize in creating unique, hand-drawn artwork that tells a story.
@@ -80,7 +80,7 @@ export default function Home() {
             Let’s collaborate and create something beautiful together!
             Contact me today to discuss your next project.
           </div>
-          <Image src='/me.png' alt='Image 1' className='w-1/2 h-auto object-cover border border-black shadow-[6px_6px_0_0#000] mb-8 lg:mb-0' layout='responsive' width={200} height={200} />
+          <Image src='/Painting1/herself.jpg' alt='Image 1' className='w-1/2 md:w-[60%] h-auto object-cover md:max-w-[60%] border border-black shadow-[6px_6px_0_0#000] mb-8 lg:mb-0' layout='responsive' width={300} height={200} style={{ filter: "invert(0)" }}/>
         </div>
     </div>
   );

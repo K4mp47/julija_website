@@ -7,7 +7,8 @@ import {
 import Image from "next/image"
 import NavBar from "../components/navbar/navbar";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import SpringModal  from "../components/modal/modal";
 
 const categories: [string, string[][]][] = [
   ['Paintings',
@@ -15,34 +16,41 @@ const categories: [string, string[][]][] = [
       [
         'Painting 1',
         '/image1.png',
+        'Primo quadro appartenete alla serie di opere che esplorano la luce e l\'ombra, creando un contrasto drammatico.\
+        nell\'immagine si può notare l\'uso di colori vivaci e pennellate audaci che danno vita alla scena.\
+        La composizione è bilanciata, con un punto focale che attira l\'occhio dello spettatore.\
+        Questo dipinto rappresenta un momento di introspezione e contemplazione, invitando lo spettatore a riflettere sulla bellezza della vita.\
+        La luce gioca un ruolo fondamentale, creando profondità e dimensione, mentre le ombre aggiungono un senso di mistero e complessità.\
+        ',
       ],
       [
         'Painting 2',
         '/image2.png',
+        'Secondo quadro della serie, caratterizzato da un uso audace del colore e della forma.',
       ],
       [
         'Painting 3',
-        '/Painting3/image1.png',
+        '/fruits.png',
       ],
       [
         'Painting 4',
-        '/Painting4/image1.png',
+        '/fruits.png',
       ],
       [
         'Painting 5',
-        '/Painting5/image1.png',
+        '/image1.png',
       ],
       [
         'Painting 6',
-        '/Painting6/image1.png',
+        '/hero3.png',
       ],
       [
         'Painting 7',
-        '/Painting7/image1.png',
+        '/fruits5.png',
       ],
       [
         'Painting 8',
-        '/Painting8/image1.png',
+        '/hero2.png',
       ],
     ]
   ],
@@ -50,47 +58,47 @@ const categories: [string, string[][]][] = [
     [
      [
         'Poetry 1',
-        '/Poetry1/image1.png',
+        '/image1.png',
       ],
       [
         'Poetry 2',
-        '/Poetry2/image1.png',
+        '/hero9-.png',
       ],
       [
         'Poetry 3',
-        '/Poetry3/image1.png',
+        '/hero8.png',
       ],
       [
         'Poetry 4',
-        '/Poetry4/image1.png',
+        '/hero3.png',
       ],
       [
         'Poetry 5',
-        '/Poetry5/image1.png',
+        '/fruits4.png',
       ],
       [
         'Poetry 6',
-        '/Poetry6/image1.png',
+        '/image1.png',
       ],
       [
         'Poetry 7',
-        '/Poetry7/image1.png',
+        '/image1.png',
       ],
     ]
   ],
   ['Photography',
     [
       [
-        'Photography 1', 
-        '/Photography1/image1.png',
+        'Photography 1',
+        '/image1.png',
       ],
       [
         'Photography 2',
-        '/Photography2/image1.png', 
+        '/image1.png',
       ],
       [
         'Photography 3',
-        '/Photography3/image1.png',
+        '/image1.png',
       ],
     ]
   ],
@@ -98,23 +106,23 @@ const categories: [string, string[][]][] = [
     [
       [
         'Video 1',
-        '/Video1/image1.png',
+        '/ascii.webm',
       ],
       [
         'Video 2',
-        '/Video2/image1.png',
+        '/ascii.webm',
       ],
       [
         'Video 3',
-        '/Video3/image1.png',
+        '/ascii.webm',
       ],
       [
         'Video 4',
-        '/Video4/image1.png',
+        '/ascii.webm',
       ],
       [
         'Video 5',
-        '/Video5/image1.png',
+        '/ascii.webm',
       ],
     ]
   ]
@@ -128,6 +136,7 @@ type AnimatedListItemProps = {
 function AnimatedListItem({ item, idx, animation }: AnimatedListItemProps) {
   const ref = useRef<HTMLLIElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: '-10%' });
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.li
@@ -141,22 +150,35 @@ function AnimatedListItem({ item, idx, animation }: AnimatedListItemProps) {
     >
       <HoverCard>
         <HoverCardTrigger asChild>
-          <p className="butovo cursor-pointer border-l pl-4 border-black">
+          <p className="butovo cursor-pointer border-l pl-4 border-black" onClick={() => setIsOpen(true)}>
             {item[0]}
             <sup className="text-[#AE2D29] font-thin">&nbsp;{idx + 1}</sup>
           </p>
         </HoverCardTrigger>
         <HoverCardContent className="w-80 h-80">
-          <div className="flex justify-between">
-            <Image
-              src={item[1]}
-              alt={item[0]}
-              layout="fill"
-              className="object-fill"
-            />
+          <div className="w-full h-full min-h-[320px] min-w-[320px]">
+            { item[1].endsWith('.webm') ? (
+              <video
+                src={item[1]}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute top-0 left-0 w-full h-full object-fill"
+                style={{ filter: "invert(0)" }}
+              />
+            ) : (
+              <Image
+                src={item[1]}
+                alt={item[0]}
+                fill
+                className="object-cover"
+              />
+            )}
           </div>
         </HoverCardContent>
       </HoverCard>
+      <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} src={item[1]} title={item[0]} descr={item[2]} />
     </motion.li>
   );
 }
